@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<!--
+	数组是特殊类型的对象，支持数字索引
+--->
+
+
+
+<!--
+	创建数组
+--->
+<script type="text/javascript">
+	
+	var car1 = "Saab";
+	var car2 = "Volvo";
+	var car3 = "BMW";
+
+	// 方式一：使用数组文本创建数组
+	var cars = ["Saab", "Volvo", "BMW"];
+
+	var cars = [
+		"Sbba",
+		"Volvo",
+		"BMW"
+	];
+
+	//方式二： 使用 new 关键字创建数组
+	var cars = new array("Saab", "Volvo", "BMW");
+
+	// 总结：方式一和方式二创建数组产生的数组效果是完全一样的， 无需使用 new array(), 建议使用 方式一
+
+</script>
+
+
+<!--
+	访问数组元素, 数组的索引从 0 开始
+--->
+<script type="text/javascript">
+
+	var cars = ["Saab", "Volvo", "BMW"];
+
+	// 获取第一个元素
+	var oneCar = cars[0];
+
+	// 修改第一个元素
+	cars[0] = "Opel";
+
+
+</script>
+
+
+
+<!--
+	数组是对象， 数组是一种特殊类型的对象。使用 typeof 运算符返回 "object", 但是，JavaScript数组最好以数组类描述
+--->
+
+<script type="text/javascript">
+	var person = ["Bill", "Gates", 62];
+
+	// 使用下标访问数组
+	var name = person[0]; // "Bill"
+	// alert(name);
+
+	var person = {firstName:"John", lastName:"Doe", age:46};
+	// 对象使用名称访问其 "成员"，
+	var name = person.firstName; // "John"
+	// alert(name);
+
+	// 数组元素可以是对象， 在数组中可以存放不同类型的对象，可以保存对象、函数、数组
+
+</script>
+
+<!--
+	数组的属性和方法
+--->
+<script type="text/javascript">
+	var cars = ["Saab", "Volvo", "BMW"];
+
+	cars.length;// 3 返回数组的长度(元素个数)
+	cars.sort(); // sort() 对数组进行排序
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+	fruits[0]; // 访问第一个元素
+	fruits[fruits.length - 1]; // 访问最后一个元素
+
+	// 添加元素
+	fruits.push("Lemon");
+	fruits[fruits.length] = "Lemon";
+
+	// 在大于数组长度的索引添加最高索引的元素可在数组中创建未定义的“洞”.
+	// 例如现在 fruits数组长度为6，在索引为7的位置添加元素就会fruits[6]的位置，出现undefined元素
+	fruits[7] = "WaterMelon";
+
+	// alert(fruits.length); // fruits.length = 8
+	// alert(fruits[6]); // undefined
+
+</script>
+
+
+<!--
+	数组的一些特性
+--->
+
+<script type="text/javascript">
+	// 1. 数组和对象的区别， 数组使用"数字索引", 对象使用"命名索引，而数组是特殊类型的对象，具有数字索引
+	// 命名索引有点类似于 Swift 等编程语言的Dictionary
+
+	// 2. 避免 new Array()
+
+	// 创建空数组
+	var points = new Array(); // 差
+	var points = []; // 优
+
+	var points = new Array(40, 100, 1, 5, 25, 10); // 差
+	var points = [40, 100, 1, 5, 25, 10];          // 优
+
+
+	// new 关键词只会使代码复杂化。它还会产生某些不可预期的结果：
+	var points = new Array(40, 100);  // 创建包含两个元素的数组（40 和 100）
+
+	// 只传一个参数
+	var points = new Array(40);  // 创建包含 40 个未定义元素的数组！！！
+
+
+	// 3. 如何识别数组
+	typeof points // 返回 object
+
+</script>
+
+
+
+
+</body>
+</html>
