@@ -7,7 +7,7 @@
 
 
 <!--
-	数组是特殊类型的对象，支持数字索引
+	数组是特殊类型的对象，支持数字索引。
 --->
 
 
@@ -31,9 +31,10 @@
 	];
 
 	//方式二： 使用 new 关键字创建数组
-	var cars = new array("Saab", "Volvo", "BMW");
+	var cars = new Array("Saab", "Volvo", "BMW");
 
 	// 总结：方式一和方式二创建数组产生的数组效果是完全一样的， 无需使用 new array(), 建议使用 方式一
+	console.log(cars);
 
 </script>
 
@@ -135,6 +136,107 @@
 </script>
 
 
+
+
+<!--
+	数组方法
+--->
+
+<script type="text/javascript">
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+	// 把数组转换为用逗号分隔的数组值的字符串
+	var str = fruits.toString();
+	console.log(str); // "Banana,Orange,Apple,Mango"
+
+	// join() 使用字符串分隔数组元素的值并返回字符串
+	var str = fruits.join("*"); // // "Banana*Orange*Apple*Mango"
+	console.log(str);
+
+	// pop() 删除数组最后一个元素, 并返回删除的元素
+	var element = fruits.pop();
+	console.log(element); // "Mango"
+
+	// push() // 在数组的末尾添加一个元素, 并返回数组的长度
+	var length = fruits.push("Kiwi");
+	console.log(length); // 4
+
+	// shift()  删除数组的第一个元素，并把后面所有的元素的索引减一，并返回删除的元素
+	var element = fruits.shift();
+	console.log(element);
+
+	// unshift() 在第一个位置插入一个元素，并返回插入数据后数组的长度
+	var length = fruits.unshift("Water");
+	console.log(length);
+
+
+	// fruits[0] = "Kiwi" 通过下标修改元素
+	fruits[0] = "Kiwi"
+
+
+	// 删除元素
+	delete fruits[0]; //  把 fruits 中的首个元素改为 undefined
+	// 使用 delete 会在数组留下未定义的空洞。请使用 pop() 或 shift() 取而代之。
+
+</script>
+
+<!--
+	fruits.splice(2, 0, "Lemon", "Kiwi"); 替换数组元素
+	第一个参数（2）指定需要替换元素的起始位置
+	第二个参数（0）定义需要替换元素的个数， 这个参数为0相当于在指定位置插入元素
+	其余参数（“Lemon”，“Kiwi”）定义要替换成的新元素。 这个参数省略相对于删除元素
+--->
+<script type="text/javascript">
+	
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.splice(2, 0, "Lemon", "Kiwi"); // 添加元素
+	console.log(fruits); // ["Banana", "Orange", "Lemon", "Kiwi", "Apple", "Mango"]
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.splice(2, 2, "Lemon", "Kiwi"); // 替换元素
+	console.log(fruits); // ["Banana", "Orange", "Lemon", "Kiwi"]
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.splice(0, 1); // 删除下标为0的元素
+	console.log(fruits); // ["Orange", "Apple", "Mango"]
+
+</script>
+
+<!--
+	concat() 方法通过合并（连接）现有数组来创建一个新数组：
+	1. 不会修改改变数组，返回一个新的数组
+	2. 可以连接任意个数组
+--->
+<script type="text/javascript">
+	var myGirls = ["Cecilie", "Lone"];
+	var myBoys = ["Emil", "Tobias", "Linus"];
+	var myChildren = myGirls.concat(myBoys);   // 连接 myGirls 和 myBoys
+
+
+	var arr1 = ["Cecilie", "Lone"];
+	var arr2 = ["Emil", "Tobias", "Linus"];
+	var arr3 = ["Robin", "Morgan"];
+	var myChildren = arr1.concat(arr2, arr3);   // 将arr1、arr2 与 arr3 连接在一起
+
+</script>
+
+
+<!--
+	slice(1, 3) 裁剪数组
+	1. 开始位置
+	2. 结束位置，但不包含该位置元素; 如果该参数省略，则截取到数组的结束位置
+--->
+<script type="text/javascript">
+	console.log("==== slice() ====");
+	var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+	var citrus = fruits.slice(2); // ["Lemon", "Apple", "Mango"]
+	console.log(citrus);
+
+	var citrus = fruits.slice(1, 3); 
+	console.log(citrus); // ["Orange", "Lemon"]
+
+
+</script>
 
 
 </body>
