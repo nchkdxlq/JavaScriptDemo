@@ -270,8 +270,119 @@
 </script>
 
 
+<!--
+	数组迭代 (高阶函数， 函数的参数为函数的函数为高阶函数)
+--->
+
+<script type="text/javascript">
+	// 1. Array.forEach()
+
+	var txt = "";
+	var numbers = [45, 4, 16, 25];
+	numbers.forEach(v3_forEach_function);
+
+	// 下面三个函数都可以
+	function v1_forEach_function(value, index, array) {
+		txt = txt + value + "<br>"; 
+	}
+
+	function v2_forEach_function(value, index) {
+		console.log(index.toString() + " : " + value.toString());
+	}
+
+	function v3_forEach_function(value) {
+		console.log(value);
+	}
+
+	// Array.map() 对象每个元素执行函数来创建新的数组
+
+	var numbers1 = [45, 4, 16, 25];
+	var numbers2 = numbers1.map(map_function);
+	console.log("Array.map() = " + numbers2.toString());
+	function map_function(value) {
+		return value * 2;
+	}
+
+	// Array.filter() 
+	var numbers3 = numbers1.filter(filter_function);
+	console.log("Array.filter() = " + numbers3.toString());
+
+	function filter_function(value) {
+		return value > 18;
+	}
+
+	// Array.reduce()
+	var numbers = [45, 4, 16, 25];
+	var sum = numbers.reduce(v1_reduce_function);
+
+	console.log("Array.reduce(): sum = " + sum);
+	// 参数依次为 总数(初始值/原先返回的值) 、元素值、元素下标、数组本身
+	function v1_reduce_function(total, value, index, array) {
+		return total + value;
+	}
+	// index、array 不使用可以简化为下面的形式
+	function v2_reduce_function(total, value) {
+		return total + value;
+	}
+
+	// reduce() 可以接受一个初始值
+	var sum = numbers.reduce(v2_reduce_function, 100);
+	console.log("Array.reduce(100): sum = " + sum);
+
+</script>
+
+<!--
+
+--->
+<script type="text/javascript">
+
+	var fruits =  ["Apple", "Orange", "Apple", "Mango"];
+
+	// Array.indexOf() 从头往尾开始查找，返回数组中首次出现元素的索引
+	var index = fruits.indexOf("Apple");
+	console.log("Array.indexOf(): index = " + index);
+
+	// 可以指定查找的其实位置，负数表示冲结尾开始的给定位置开始往后查找, 如果没有找到，返回 -1
+	var index = fruits.indexOf("Apple", 2); // 2
+	console.log("Array.indexOf(2): index = " + index);
+
+	// Array.lastIndexOf() 从尾部向头开始查找，返回首次出现元素的索引
+
+	var index = fruits.lastIndexOf("Apple"); // 2
+	console.log("Array.lastIndexOf(): index = " + index);
+
+	var index = fruits.lastIndexOf("Apple", 1); // 0
+	console.log("Array.lastIndexOf(1): index = " + index);
 
 
+	// Array.find() 返回满足条件的第一个元素
+
+	var numbers = [4, 9, 16, 25, 29];
+	var first = numbers.find(v2_find_function); // 25
+	console.log("Array.find(): first = " + first);
+
+	function v1_find_function(value, index, array) {
+		return value > 18;
+	}
+	function v2_find_function(value) {
+		return value > 18;
+	}
+	
+
+	// Array.findIndex() 返回满足条件的第一个元素的下标
+
+	var firstIndex = numbers.findIndex(v2_findIndex_function); // 3
+	console.log("Array.findIndex(): firstIndex = " + firstIndex);	
+
+	function v1_findIndex_funtion(value, index, array) {
+		return value > 18;
+	}
+	function v2_findIndex_function(value) {
+		return value > 18;
+	}
+
+
+</script>>
 
 
 </body>
