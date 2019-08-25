@@ -159,3 +159,53 @@ var dog2 = new DogV2('dog2');
 
 var res = dog1.hello === dog2.hello; // true
 console.log('DogV2: dog1.hello === dog2.hello : ' + res);
+
+
+
+function PrimaryStudent(props) {
+    // 调用Student的构造函数，绑定this
+    Student.call(this, props);
+    this.grade = props || 1;
+}
+
+
+
+/**
+ *  原型继承
+ */
+
+
+
+ /**
+  * class 继承
+  */
+
+  // `class` 关键字从ES6开始正式被引入JS中, `class`的目的是让定义类更简单
+
+  // 使用 class 定义类
+  class StudentV1 {
+      // 构造函数
+      constructor(name) {
+          this.name = name;
+      }
+
+      hello() {
+          console.log('Hello, ' + this.name + '!');
+      }
+  }
+
+  var s1 = new StudentV1('Kitty');
+  s1.hello();
+
+
+  class PrimaryStudentV1 extends StudentV1 {
+      constructor(name, grade) {
+          super(name); // 一定要用supper调用父类的构造方法，否则父类的属性name不能正常初始化
+          this.grade = grade;
+      }
+
+      // 在子类中添加新的方法
+      myGrade() {
+          console.log('grade is ' + this.grade);
+      }
+  }
