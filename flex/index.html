@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flex Layout</title>
+
+<style>
+
+  .flexBox {
+    height: 80px;
+    width: 500px;
+    background-color: sandybrown;
+
+    display: flex; /* or inline-flex */
+    flex-direction: row; /* 主轴方向 默认值：row */
+
+    flex-wrap: nowrap; /* item是否允许换行 nowrap | wrap | wrap-reverse  */
+
+    /* flex-start | flex-end | center | space-between | space-around | space-evenly */
+    justify-content: space-evenly;  /* item在主轴的排列方式, 默认值: flex-start */
+
+    /* flex-start | flex-end | center | baseline | stretch */
+    align-items: center; /* item在交叉轴的对齐方式, 默认值: flex-start */
+  }
+
+  /* 子选择器,  flexbox是父选择器, 父选择器下面的所有 div元素 */
+  .flexBox > div {
+    height: 50px;
+    width: 50px;
+    background-color: seagreen;
+
+    /* 文本水平居中 */
+    text-align: center; 
+    /* 当 line-height 与元素的高度相等时, 文本就在元素内会垂直居中 */
+    line-height: 50px;
+
+
+    border: solid 2px slateblue;
+    /* border-style: solid;
+    border-color: slateblue;
+    border-width: 1px; */
+
+    
+    /* flex-shrink: 3; */
+    flex-shrink: 0;
+  }
+
+  .flexBox > span {
+    background-color: slateblue;
+    border: solid 2px greenyellow;
+    text-align: center;
+
+    /* 1. 文本不换行 2. 一行显示不完显示... */
+    white-space: nowrap; /* 文本不换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 超出部分显示... */
+  }
+
+  .item1 {
+    align-self: flex-start;
+  }
+
+  .item2 {
+    align-self: flex-end;
+  }
+
+
+  .span0 {
+    /* 拉伸比例， 默认:0, 不拉伸 */
+    flex-grow: 1; 
+  }
+  .span1 {
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+
+</style>
+
+
+</head>
+
+<body>
+
+  <div class="flexBox">
+    <div class="item1"> div 0 </div>
+    <div class="item2"> div 1 </div>
+    <div> div 2 </div>
+    <div> div 3 </div>
+    <div> div 4 </div>
+    <span class="span0"> span 0 我有很多内容一行根本显示不全 </span>
+    <span class="span1"> span 1 </span>
+  </div>
+
+
+</body>
+
+</html>
